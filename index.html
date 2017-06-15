@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ben Murray</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div id="navbar">
+        <a onclick="changePage('main_page')" class="navbar_link">home</a>
+        <a onclick="changePage('about_page')" class="navbar_link">about</a>
+        <a onclick="changePage('portfolio_page')" class="navbar_link">portfolio</a>
+        <a onclick="changePage('contact_page')" class="navbar_link">contact</a>
+    </div><!--end navbar-->
+
+    <div id="flex-wrapper" class="flex-center-column">
+
+
+
+        <!-- main page-->
+        <div id="main_page"  class="flex-center-column">
+            <div id="keyboard_container"  class="flex-center-column">
+
+                <!--keyboard base-->
+                <img id="keyboard_base" src="static/images/keyboard_base.svg"/>
+
+                <!--keyboard shadow-->
+                <div id="keyboard_shadow"></div>
+
+                <!--knobs and phongs-->
+                <img src="static/images/knob.svg" id="knob_1" class="knob"/>
+                <img src="static/images/knob.svg" id="knob_2" class="knob"/>
+                <img src="static/images/knob.svg" id="knob_3" class="knob"/>
+                <img src="static/images/knob.svg" id="knob_4" class="knob"/>
+                <img src="static/images/phong.svg" class="phong"/>
+
+                <!--dial-->
+                <img src="static/images/dial.svg" id="dial"/>
+
+                <!--screen-->
+                <img src="static/images/lines.gif" id="lines"/>
+                <img src="static/images/interlacing.svg" id="interlacing"/>
+                <img src="static/images/screen_reflection.svg" id="screen_reflection"/>
+
+
+                <!--screen_title-->
+                <h2 onclick="changePage('about_page')" class="screen_title" id="screen_title_about">ABOUT</h2>
+                <h2 onclick="changePage('portfolio_page')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
+                <h2 onclick="changePage('contact_page')" class="screen_title" id="screen_title_contact">CONTACT</h2>
+
+            </div><!--end keyboard container-->
+        </div><!--end main_page-->
+
+
+        <!-- about page-->
+        <div id="about_page"  class="flex-center-column">
+        </div><!--end about_page-->
+
+
+        <!-- portfolio page-->
+        <div id="portfolio_page"  class="flex-center-column">
+
+            <img src="static/images/portfolio_page_title.svg" class="page_title" id="portfolio_page_title">
+
+            <div class="portfolio_items_container">
+                <div class="portfolio_item flex-center-column">
+                    <img class="portfolio_image" src="static/images/hand.svg"/>
+                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
+                </div>
+
+                 <div class="portfolio_item flex-center-column">
+                    <img class="portfolio_image" src="static/images/hand.svg"/>
+                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
+                </div>
+
+                 <div class="portfolio_item flex-center-column">
+                    <img class="portfolio_image" src="static/images/hand.svg" />
+                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
+                </div>
+            </div><!--end portfolio_items_container-->
+
+             <div class="portfolio_items_container">
+                <div class="portfolio_item flex-center-column">
+                    <img class="portfolio_image" src="static/images/hand.svg"/>
+                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
+                </div>
+
+                 <div class="portfolio_item flex-center-column">
+                    <img class="portfolio_image" src="static/images/hand.svg"/>
+                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
+                </div>
+
+                 <div class="portfolio_item flex-center-column">
+                    <img class="portfolio_image" src="static/images/hand.svg" />
+                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
+                </div>
+            </div><!--end portfolio_items_container-->
+
+        </div><!--end portfolio_page-->
+
+
+
+
+
+
+    </div><!--end flex-wrapper-->
+
+    <script>
+
+        function closeAll(){
+            document.getElementById('main_page').style.display = 'none';
+            document.getElementById('portfolio_page').style.display = 'none';
+            document.getElementById('about_page').style.display = 'none';
+
+        }
+
+        function changePage(page){
+            closeAll();
+
+            document.getElementById(page).style.display = 'flex';
+
+            //toggle navbar on and off
+            if(page === 'main_page'){
+                document.getElementById('navbar').style.opacity = '0';
+            }else{
+                document.getElementById('navbar').style.opacity = '1';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
