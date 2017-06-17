@@ -6,12 +6,6 @@
     <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
-    <div id="navbar">
-        <a onclick="changePage('main_page')" class="navbar_link">home</a>
-        <a onclick="changePage('about_page')" class="navbar_link">about</a>
-        <a onclick="changePage('portfolio_page')" class="navbar_link">portfolio</a>
-        <a onclick="changePage('contact_page')" class="navbar_link">contact</a>
-    </div><!--end navbar-->
 
     <div id="flex-wrapper" class="flex-center-column">
 
@@ -44,59 +38,47 @@
 
 
                 <!--screen_title-->
-                <h2 onclick="changePage('about_page')" class="screen_title" id="screen_title_about">ABOUT</h2>
-                <h2 onclick="changePage('portfolio_page')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
-                <h2 onclick="changePage('contact_page')" class="screen_title" id="screen_title_contact">CONTACT</h2>
+                <div id="screen_menu">
+
+                    <div id="menu_titles">
+                        <h2 onclick="changePage('about_titles')" class="screen_title" id="screen_title_about">ABOUT</h2>
+                        <h2 onclick="changePage('portfolio_titles')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
+                        <h2 onclick="changePage('contact_titles')" class="screen_title" id="screen_title_contact">CONTACT</h2>
+                    </div>
+
+                    <div id="about_titles">
+                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">⬅</h2>
+                        <p id="about_paragraph">I'm Ben and I'm a developer working in Python, Javacript, HTML & CSS. I build software
+                        for a living and also for fun.<br></p>
+                    </div>
+
+                    <div id="portfolio_titles">
+                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">⬅</h2>
+                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Craft Beer Search Engine</h6>
+                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Daft.ie api</h6>
+                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Motion Detection Recorder</h6>
+                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Synthesizer Portfolio Website</h6>
+                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Russian Grammar Analyser</h6>
+                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Craft Beer Search Engine</h6>
+                    </div>
+
+                    <div id="contact_titles">
+                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">⬅</h2>
+                        <img class="contact_image" src="static/images/linkedin.svg"/>
+                        <img class="contact_image" id="github_contact_icon" src="static/images/github.svg"/>
+                        <img class="contact_image" id="email_contact_icon" src="static/images/email.svg"/>
+                    </div>
+
+                </div>
 
             </div><!--end keyboard container-->
         </div><!--end main_page-->
 
 
-        <!-- about page-->
-        <div id="about_page"  class="flex-center-column">
-        </div><!--end about_page-->
 
 
-        <!-- portfolio page-->
-        <div id="portfolio_page"  class="flex-center-column">
 
-            <img src="static/images/portfolio_page_title.svg" class="page_title" id="portfolio_page_title">
 
-            <div class="portfolio_items_container">
-                <div class="portfolio_item flex-center-column">
-                    <img class="portfolio_image" src="static/images/hand.svg"/>
-                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
-                </div>
-
-                 <div class="portfolio_item flex-center-column">
-                    <img class="portfolio_image" src="static/images/hand.svg"/>
-                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
-                </div>
-
-                 <div class="portfolio_item flex-center-column">
-                    <img class="portfolio_image" src="static/images/hand.svg" />
-                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
-                </div>
-            </div><!--end portfolio_items_container-->
-
-             <div class="portfolio_items_container">
-                <div class="portfolio_item flex-center-column">
-                    <img class="portfolio_image" src="static/images/hand.svg"/>
-                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
-                </div>
-
-                 <div class="portfolio_item flex-center-column">
-                    <img class="portfolio_image" src="static/images/hand.svg"/>
-                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
-                </div>
-
-                 <div class="portfolio_item flex-center-column">
-                    <img class="portfolio_image" src="static/images/hand.svg" />
-                    <h6 class="portfolio_item_title">Russian Case Tester</h6>
-                </div>
-            </div><!--end portfolio_items_container-->
-
-        </div><!--end portfolio_page-->
 
 
 
@@ -108,23 +90,16 @@
     <script>
 
         function closeAll(){
-            document.getElementById('main_page').style.display = 'none';
-            document.getElementById('portfolio_page').style.display = 'none';
-            document.getElementById('about_page').style.display = 'none';
-
+            document.getElementById('portfolio_titles').style.display = 'none';
+            document.getElementById('menu_titles').style.display = 'none';
+            document.getElementById('contact_titles').style.display = 'none';
+            document.getElementById('about_titles').style.display = 'none';
         }
 
         function changePage(page){
             closeAll();
+            document.getElementById(page).style.display = 'block';
 
-            document.getElementById(page).style.display = 'flex';
-
-            //toggle navbar on and off
-            if(page === 'main_page'){
-                document.getElementById('navbar').style.opacity = '0';
-            }else{
-                document.getElementById('navbar').style.opacity = '1';
-            }
         }
 
     </script>
