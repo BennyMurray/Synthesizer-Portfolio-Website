@@ -50,6 +50,37 @@ body{
 
 /*-----------------*/
 
+/*navbar*/
+
+/*-----------------*/
+
+#navbar{
+    position: absolute;
+    opacity: 0;
+    padding-top: 0.4%;
+    width: 100%;
+    height: 2.5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar_link{
+    font-size: 0.8em;
+    font-family: arial;
+    color: white;
+    margin-right: 3.6%;
+    cursor: pointer;
+}
+
+.navbar_link:hover{
+    color: #ffccff;
+}
+
+
+/*-----------------*/
+
 /*main page*/
 
 /*-----------------*/
@@ -120,17 +151,9 @@ body{
 
 #dial{
     position: absolute;
-    top: 14%;
+    top: 58%;
+    left: 10.25%;
 
-}
-
-#dial_container{
-    position: absolute;
-    border: solid 1px black;
-    height: 35%;
-    width: 10%;
-    top: 52%;
-    left: 12%;
 }
 
 /*phongs*/
@@ -180,105 +203,85 @@ body{
     top: 9.8%;
 }
 
-/*screen titles*/
-
-#screen_menu{
-    position: absolute;
-    left: 7.5%;
-    top: 10%;
-    height: 33%;
-    width: 38%;
-}
-
+/*screen title*/
 .screen_title{
-    margin-top: 4%;
-    transition: font-size 0.3s;
-    position: relative;
+    transition: font-size 0.5s;
+    position: absolute;
     font-family: alien-encounters;
     font-size: 2.6em;
+    left: 11%;
     cursor: pointer;
-    left: 5%;
-    top: 2.5%;
 }
 
+#screen_title_about{
+    top: 13%;
+}
+
+#screen_title_portfolio{
+    top: 23%;
+}
+
+#screen_title_contact{
+    top: 33%;
+}
 
 .screen_title:hover{
     color: #c25656;
     font-size: 2.65em;
 }
 
-/*Porfolio screen titles*/
 
-#portfolio_titles{
-    display: none;
-}
 
-#backarrow{
-    font-size: 1.5em;
-        z-index: 100;
 
-}
 
-.portfolio_subtitle{
-    z-index: 100;
-    margin-top: 2.5%;
-    transition: font-size 0.3s;
-    position: relative;
-    font-family: alien-encounters;
-    font-size: 0.8em;
-    left: 5%;
-    top: 7%;
-    cursor: pointer;
-}
+/*-----------------*/
 
-.portfolio_subtitle:hover{
-    color: #c25656;
-    font-size: 1.0005em;
-}
+/*about page*/
 
-/*Contact screen titles*/
+/*-----------------*/
 
-#contact_titles{
-    display: none;
-}
-
-.contact_image{
-    left: 11%;
-    top: 36%;
-    position: absolute;
-    width: 20%;
-    cursor: pointer;
-}
-
-#github_contact_icon{
-    left: 39%;
-    top: 36.2%;
-    width: 20.5%;
-}
-
-#email_contact_icon {
-    left: 65%;
-
-    top: 33.6%;
-}
-
-    .contact_image:hover{
-        fill: red;
-        color: red;
-    }
-
-/*About screen titles*/
-
-#about_titles{
+#about_page{
+    height: 80%;
+    width: 80%;
     display: none;
 
 }
 
-#about_paragraph{
 
-    padding-right: 5%;
-    padding-left: 5%;
-    padding-top: 3%;
-    left: 5%;
-    font-family: alien-encounters;
+/*-----------------*/
+
+/*portfolio page*/
+
+/*-----------------*/
+
+#portfolio_page{
+    height: 70%;
+    width: 70%;
+    display: none;
+}
+
+.portfolio_items_container{
+    display: flex;
+    width: 70%;
+    height: 35%;
+}
+
+
+.portfolio_image{
+    width: 23%;
+    margin-bottom: 5%;
+}
+
+.portfolio_item{
+    width: 100%;
+}
+
+.portfolio_item_title{
+    color: white;
+    font-family: arial;
+    font-weight: 400;
+}
+
+#portfolio_page_title{
+    margin-bottom: 5%;
 }

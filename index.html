@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <title>Ben Murray</title>
     <link rel="stylesheet" href="static/css/styles.css">
+
 </head>
 <body>
 
     <div id="flex-wrapper" class="flex-center-column">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script>
+  $( function() {
+    $( "#dial" ).draggable({ axis: "y", containment: "#dial_container", scroll: false })
+
+
+  } );
+  </script>
+
 
 
 
@@ -29,7 +42,9 @@
                 <img src="static/images/phong.svg" class="phong"/>
 
                 <!--dial-->
-                <img src="static/images/dial.svg" id="dial"/>
+                <div id="dial_container">
+                    <img src="static/images/dial.svg" id="dial"/>
+                </div>div>
 
                 <!--screen-->
                 <img src="static/images/lines.gif" id="lines"/>
