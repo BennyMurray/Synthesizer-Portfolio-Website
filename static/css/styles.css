@@ -126,11 +126,11 @@ body{
 
 #dial_container{
     position: absolute;
-    border: solid 1px black;
+
     height: 35%;
     width: 10%;
-    top: 52%;
-    left: 12%;
+    top: 56%;
+    left: 10.3%;
 }
 
 /*phongs*/

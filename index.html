@@ -12,6 +12,8 @@
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="static/js/propeller.min.js"></script>
+
 
   <script>
   $( function() {
@@ -20,8 +22,6 @@
 
   } );
   </script>
-
-
 
 
         <!-- main page-->
@@ -39,7 +39,7 @@
                 <img src="static/images/knob.svg" id="knob_2" class="knob"/>
                 <img src="static/images/knob.svg" id="knob_3" class="knob"/>
                 <img src="static/images/knob.svg" id="knob_4" class="knob"/>
-                <img src="static/images/phong.svg" class="phong"/>
+
 
                 <!--dial-->
                 <div id="dial_container">
@@ -88,17 +88,13 @@
 
             </div><!--end keyboard container-->
         </div><!--end main_page-->
-
-
-
-
-
-
-
-
-
-
-
+        
+<script>
+    new Propeller(document.getElementById('knob_1'), {inertia: 0, angle:330});
+    new Propeller(document.getElementById('knob_2'), {inertia: 0, angle:330});
+    new Propeller(document.getElementById('knob_3'), {inertia: 0, angle:330});
+    new Propeller(document.getElementById('knob_4'), {inertia: 0, angle:330});
+</script>
 
     </div><!--end flex-wrapper-->
 
