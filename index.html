@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Ben Murray</title>
     <link rel="stylesheet" href="static/css/styles.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 
         <!-- main page-->
         <div id="main_page"  class="flex-center-column">
-            <div id="keyboard_container"  class="flex-center-column">
+            <div id="keyboard_container" class="flex-center-column">
 
                 <!--keyboard base-->
                 <img id="keyboard_base" src="static/images/keyboard_base.svg"/>
@@ -50,6 +50,12 @@
                 <img src="static/images/lines.gif" id="lines"/>
                 <img src="static/images/interlacing.svg" id="interlacing"/>
                 <img src="static/images/screen_reflection.svg" id="screen_reflection"/>
+
+              <!--keys-->
+               <object class="key" data="static/images/c-type-key.svg" id="c0" type="image/svg+xml"></object>
+                 <object class="key" data="static/images/d-type-key.svg" id="d0" type="image/svg+xml" ></object>
+
+
 
 
                 <!--screen_title-->
@@ -85,16 +91,17 @@
                     </div>
 
                 </div>
-
+                    <img id="keyboard_foreshadow" src="static/images/keyboard_shadow.svg"/>
             </div><!--end keyboard container-->
         </div><!--end main_page-->
         
 <script>
-    new Propeller(document.getElementById('knob_1'), {inertia: 0, angle:330});
-    new Propeller(document.getElementById('knob_2'), {inertia: 0, angle:330});
-    new Propeller(document.getElementById('knob_3'), {inertia: 0, angle:330});
-    new Propeller(document.getElementById('knob_4'), {inertia: 0, angle:330});
+    new Propeller(document.getElementById('knob_1'), {inertia: 0, angle:0});
+    new Propeller(document.getElementById('knob_2'), {inertia: 0, angle:0});
+    new Propeller(document.getElementById('knob_3'), {inertia: 0, angle:0});
+    new Propeller(document.getElementById('knob_4'), {inertia: 0, angle:0});
 </script>
+
 
     </div><!--end flex-wrapper-->
 
@@ -112,6 +119,28 @@
             document.getElementById(page).style.display = 'block';
 
         }
+
+        function playnote(id){
+                alert('hi');
+             	var a = document.getElementById(id);
+                // Get the SVG document inside the Object tag
+                var svgDoc = a.contentDocument;
+                // Get one of the SVG items by ID;
+                var svgItem = svgDoc.getElementById("cls-2");
+                // Set the colour to something else
+                svgItem.style.fill = 'blue';
+        }
+
+           function endnote(id){
+             	var a = document.getElementById(id);
+                // Get the SVG document inside the Object tag
+                var svgDoc = a.contentDocument;
+                // Get one of the SVG items by ID;
+                var svgItem = svgDoc.getElementById("cls-2");
+                // Set the colour to something else
+                svgItem.style.fill = '#eaeae';
+        }
+
 
     </script>
 
