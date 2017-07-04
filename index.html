@@ -9,7 +9,7 @@
 
 
      <script type="text/javascript">
-
+     var active_key_colours = ['#2DAEFD', '#49F770', '#FFED5E', '#FFAF42', '#FFA4FF', '#EF5B5B', '#C457C4'];
 
 
       function playnote(event) {
@@ -19,7 +19,10 @@
             var svgDoc = key.contentDocument;
             // Get one of the SVG items by ID;
             var svgItem = svgDoc.getElementById(clickedElement);
-            svgItem.style.fill = 'pink';
+            // Select a random colour from pallette to fill the key
+            active_key_colour = active_key_colours[Math.floor(Math.random()*active_key_colours.length)];
+
+            svgItem.style.fill = active_key_colour;
         }
 
          function endnote(event) {
