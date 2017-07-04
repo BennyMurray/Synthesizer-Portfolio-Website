@@ -6,14 +6,27 @@
     <link rel="stylesheet" href="static/css/styles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-
      <script type="text/javascript">
+     var context = new AudioContext();
+     var note_frequencies =  {'c0': 261.626, 'dsharp0': 277.183, 'd0': 293.665, 'csharp0': 311.127, 'e0': 329.628, 'f0': 349.228,
+         'fsharp0': 369.994, 'g0':391.995, 'gsharp0': 415.305, 'a0':  440, 'asharp0': 466.164, 'b0': 493.883, 'c1': 523.251,
+         'csharp1': 554.365, 'd1': 587.330, 'dsharp1': 622.254, 'e1':659.255};
+
+
      var active_key_colours = ['#2DAEFD', '#49F770', '#FFED5E', '#FFAF42', '#FFA4FF', '#EF5B5B', '#C457C4'];
 
 
       function playnote(event) {
+
+
            var clickedElement = event.target.id;
+
+             oscillator = context.createOscillator();
+            oscillator.connect(context.destination);
+            oscillator.frequency.value = note_frequencies[clickedElement];
+            oscillator.start();
+
+
             var key = document.getElementById(clickedElement);
             // Get the SVG document inside the Object tag
             var svgDoc = key.contentDocument;
@@ -26,6 +39,12 @@
         }
 
          function endnote(event) {
+
+            oscillator.stop();
+            oscillator.disconnect(context.destination);
+
+
+
            var clickedElement = event.target.id;
             var key = document.getElementById(clickedElement);
             // Get the SVG document inside the Object tag
