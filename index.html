@@ -23,6 +23,7 @@
 
              oscillator = context.createOscillator();
             oscillator.connect(context.destination);
+            oscillator.type = 'square';
             oscillator.frequency.value = note_frequencies[clickedElement];
             oscillator.start();
 
