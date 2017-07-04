@@ -109,13 +109,77 @@ body{
 .key{
     z-index: 16777271;
     position: absolute;
-    width: 6.98%;
+    width: 6.94%;
     top: 54.4%;
     left: 22.4%;
 }
 
+.sharp_key{
+    z-index: 16777271;
+    position: absolute;
+    width: 3.07%;
+    top: 54.35%;
+    left: 27.5%;
+}
+
 #d0{
     left: 29.8%;
+}
+
+#e0{
+    left: 37.1%;
+}
+
+#f0{
+    left: 44.52%;
+}
+
+#g0{
+    left: 51.9%;
+}
+
+#a0{
+    left: 59.15%;
+}
+
+#b0{
+    left: 66.5%;
+}
+
+#c1{
+    left: 73.9%;
+}
+
+#d1{
+    left: 81.4%;
+}
+
+#e1{
+    left: 88.9%;
+}
+
+#csharp0{
+    left: 36%;
+}
+
+#fsharp0{
+    left: 49.65%;
+}
+
+#gsharp0{
+    left: 58%;
+}
+
+#asharp0{
+    left: 65.36%;
+}
+
+#csharp1{
+    left: 79.1%;
+}
+
+#dsharp1{
+    left: 87.6%;
 }
 
 /*knobs*/

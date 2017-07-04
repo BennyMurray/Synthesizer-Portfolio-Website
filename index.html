@@ -12,7 +12,7 @@
 
 
 
-      function play(event) {
+      function playnote(event) {
            var clickedElement = event.target.id;
             var key = document.getElementById(clickedElement);
             // Get the SVG document inside the Object tag
@@ -22,35 +22,34 @@
             svgItem.style.fill = 'pink';
         }
 
-         function playy(event) {
+         function endnote(event) {
            var clickedElement = event.target.id;
             var key = document.getElementById(clickedElement);
             // Get the SVG document inside the Object tag
             var svgDoc = key.contentDocument;
             // Get one of the SVG items by ID;
             var svgItem = svgDoc.getElementById(clickedElement);
-            svgItem.style.fill = '#eaeaea';
+            if(clickedElement.length > 2){
+                svgItem.style.fill = 'black';
+            }else{
+               svgItem.style.fill = '#eaeaea';
+            }
         }
 
-        function thing(){
-            alert('I win');
-        }
 
         function addListeners() {
-            var key = document.getElementById("c0");
+          var keys = ['c0', 'd0', 'e0', 'f0', 'g0', 'a0', 'b0', 'c1', 'd1', 'e1', 'csharp0', 'dsharp0', 'fsharp0', 'gsharp0', 'asharp0', 'csharp1', 'dsharp1'];
+          for(i=0;i<keys.length;i++){
 
+            var key = document.getElementById(keys[i]);
             key.getSVGDocument().onmousedown = function (event){
-                play(event);
+                playnote(event);
             };
-
             key.getSVGDocument().onmouseup = function (event){
-                playy(event);
+                endnote(event);
             };
-
-
-
+          }
         }
-
 
     </script>
 
@@ -101,9 +100,24 @@
                 <img src="static/images/interlacing.svg" id="interlacing"/>
                 <img src="static/images/screen_reflection.svg" id="screen_reflection"/>
 
-              <!--keys-->
-               <object class="key" data="static/images/c-type-key.svg" id="c0" type="image/svg+xml"></object>
-                 <object class="key" data="static/images/d-type-key.svg" id="d0" type="image/svg+xml" ></object>
+                <!--keys-->
+                <object class="key" data="static/images/c0.svg" id="c0" type="image/svg+xml"></object>
+                <object class="key" data="static/images/d0.svg" id="d0" type="image/svg+xml" ></object>
+                <object class="key" data="static/images/e0.svg" id="e0" type="image/svg+xml" ></object>
+                <object class="key" data="static/images/f0.svg" id="f0" type="image/svg+xml" ></object>
+                <object class="key" data="static/images/g0.svg" id="g0" type="image/svg+xml" ></object>
+                <object class="key" data="static/images/a0.svg" id="a0" type="image/svg+xml" ></object>
+                <object class="key" data="static/images/b0.svg" id="b0" type="image/svg+xml" ></object>
+                <object class="key" data="static/images/c1.svg" id="c1" type="image/svg+xml"></object>
+                <object class="key" data="static/images/d1.svg" id="d1" type="image/svg+xml" ></object>
+                <object class="key" data="static/images/e1.svg" id="e1" type="image/svg+xml" ></object>
+                <object class="sharp_key" data="static/images/csharp0.svg" id="csharp0" type="image/svg+xml" ></object>
+                <object class="sharp_key" data="static/images/dsharp0.svg" id="dsharp0" type="image/svg+xml" ></object>
+                <object class="sharp_key" data="static/images/fsharp0.svg" id="fsharp0" type="image/svg+xml" ></object>
+                <object class="sharp_key" data="static/images/gsharp0.svg" id="gsharp0" type="image/svg+xml" ></object>
+                <object class="sharp_key" data="static/images/asharp0.svg" id="asharp0" type="image/svg+xml" ></object>
+                <object class="sharp_key" data="static/images/csharp1.svg" id="csharp1" type="image/svg+xml" ></object>
+                <object class="sharp_key" data="static/images/dsharp1.svg" id="dsharp1" type="image/svg+xml" ></object>
 
 
 
@@ -170,28 +184,6 @@
             document.getElementById(page).style.display = 'block';
 
         }
-
-        function playnote(id){
-                alert('hi');
-             	var a = document.getElementById(id);
-                // Get the SVG document inside the Object tag
-                var svgDoc = a.contentDocument;
-                // Get one of the SVG items by ID;
-                var svgItem = svgDoc.getElementById("cls-2");
-                // Set the colour to something else
-                svgItem.style.fill = 'blue';
-        }
-
-           function endnote(id){
-             	var a = document.getElementById(id);
-                // Get the SVG document inside the Object tag
-                var svgDoc = a.contentDocument;
-                // Get one of the SVG items by ID;
-                var svgItem = svgDoc.getElementById("cls-2");
-                // Set the colour to something else
-                svgItem.style.fill = '#eaeae';
-        }
-
 
     </script>
 
