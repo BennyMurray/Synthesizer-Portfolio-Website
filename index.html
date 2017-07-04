@@ -28,6 +28,8 @@
             oscillator.start();
 
 
+
+
             var key = document.getElementById(clickedElement);
             // Get the SVG document inside the Object tag
             var svgDoc = key.contentDocument;
@@ -65,10 +67,10 @@
           for(i=0;i<keys.length;i++){
 
             var key = document.getElementById(keys[i]);
-            key.getSVGDocument().onmousedown = function (event){
+            key.getSVGDocument().onmouseover = function (event){
                 playnote(event);
             };
-            key.getSVGDocument().onmouseup = function (event){
+            key.getSVGDocument().onmouseout = function (event){
                 endnote(event);
             };
           }
