@@ -5,8 +5,58 @@
     <title>Ben Murray</title>
     <link rel="stylesheet" href="static/css/styles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+     <script type="text/javascript">
+
+
+
+      function play(event) {
+           var clickedElement = event.target.id;
+            var key = document.getElementById(clickedElement);
+            // Get the SVG document inside the Object tag
+            var svgDoc = key.contentDocument;
+            // Get one of the SVG items by ID;
+            var svgItem = svgDoc.getElementById(clickedElement);
+            svgItem.style.fill = 'pink';
+        }
+
+         function playy(event) {
+           var clickedElement = event.target.id;
+            var key = document.getElementById(clickedElement);
+            // Get the SVG document inside the Object tag
+            var svgDoc = key.contentDocument;
+            // Get one of the SVG items by ID;
+            var svgItem = svgDoc.getElementById(clickedElement);
+            svgItem.style.fill = '#eaeaea';
+        }
+
+        function thing(){
+            alert('I win');
+        }
+
+        function addListeners() {
+            var key = document.getElementById("c0");
+
+            key.getSVGDocument().onmousedown = function (event){
+                play(event);
+            };
+
+            key.getSVGDocument().onmouseup = function (event){
+                playy(event);
+            };
+
+
+
+        }
+
+
+    </script>
+
+
 </head>
-<body>
+<body onload="addListeners();">
 
     <div id="flex-wrapper" class="flex-center-column">
 
@@ -106,6 +156,7 @@
     </div><!--end flex-wrapper-->
 
     <script>
+
 
         function closeAll(){
             document.getElementById('portfolio_titles').style.display = 'none';
