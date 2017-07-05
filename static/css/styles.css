@@ -3,6 +3,11 @@
     src: url(Alien-Encounters-Regular.ttf);
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 /*utils*/
 
 .flex-center-column{
@@ -299,12 +304,16 @@ body{
 /*Porfolio screen titles*/
 
 #portfolio_titles{
+    margin-top: 7%;
     display: none;
 }
 
 #backarrow{
-    font-size: 1.5em;
+    font-size: 0.8em;
         z-index: 100;
+    position: absolute;
+    top: 78%;
+    left: 77%;
 
 }
 
@@ -332,8 +341,9 @@ body{
 }
 
 .contact_image{
+    z-index: 100;
     left: 11%;
-    top: 36%;
+    top: 30%;
     position: absolute;
     width: 20%;
     cursor: pointer;
@@ -342,14 +352,17 @@ body{
 #github_contact_icon{
     cursor: pointer;
     left: 39%;
-    top: 36.2%;
+    top: 30%;
     width: 20.5%;
+}
+
+.margin-top{
+    margin-top: 10%;
 }
 
 #email_contact_icon {
     left: 65%;
-
-    top: 33.6%;
+    top: 29%;
 }
 
     .contact_image:hover{
@@ -367,7 +380,7 @@ body{
 #languages{
     z-index:999;
     position: absolute;
-    width: 26%;
+    width: 23%;
     top: 7%;
     left: 6%;
 }
@@ -375,8 +388,8 @@ body{
 #loadingbars{
     z-index:999;
     position: absolute;
-    width: 64%;
-    top: 7%;
+    width: 58%;
+    top: 6%;
     left: 34%;
 }
 
@@ -393,7 +406,7 @@ body{
     position: absolute;
     width: 55%;
     top: 64%;
-    left: 6%;
+    left: 7%;
 }
 
 #about_paragraph{

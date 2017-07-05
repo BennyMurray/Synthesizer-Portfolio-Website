@@ -90,6 +90,10 @@
             svgItem.style.fill = 'black';
         }
 
+        function goTo(url){
+            window.open(url);
+        }
+
     </script>
 
 
@@ -175,24 +179,25 @@
                         <img id="loadingbars" src="static/images/loadingbars.svg" />
                         <img id="skills" src="static/images/skills.svg" />
                         <img id="skillbars" src="static/images/skillbars.svg" />
+                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
 
                     </div>
 
                     <div id="portfolio_titles">
-                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">↩</h2>
-                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Craft Beer Search Engine</h6>
-                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Daft.ie api</h6>
-                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Motion Detection Recorder</h6>
-                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Synthesizer Portfolio Website</h6>
-                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Russian Grammar Analyser</h6>
-                        <h6 onclick="changePage('about_page')" class="portfolio_subtitle">Craft Beer Search Engine</h6>
+                        <a target="_blank" href="https://github.com/BennyMurray/Scoop"><h6 class="portfolio_subtitle">Craft Beer Search Engine</h6></a>
+                        <a target="_blank" href="https://github.com/BennyMurray/Saft.ie-"><h6 class="portfolio_subtitle">Daft.ie api</h6></a>
+                        <a target="_black" href="https://github.com/BennyMurray/eye-Pi"><h6 class="portfolio_subtitle">Motion Detection Recorder</h6></a>
+                        <a target="_black" href="https://github.com/BennyMurray/Synthesizer-Portfolio-Website"><h6 class="portfolio_subtitle">Synthesizer Portfolio Website</h6></a>
+                        <a target="_black" href="https://github.com/BennyMurray/Russian-Grammar-Analyser"><h6 class="portfolio_subtitle">Russian Grammar Analyser</h6></a>
+                        <a target="_black" href="https://github.com/BennyMurray/Fuel-o-Tron"><h6 class="portfolio_subtitle">Fuel Management System</h6></a>
+                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
                     </div>
 
                     <div id="contact_titles">
-                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">↩</h2>
-                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" data="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></object>
+                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
+                         <object onmouseover="highlight(this.id)"  onmouseout="revert(this.id)" onclick="goTo('https://www.linkedin.com/in/bennymurray/')" class="contact_image" data="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></object>
                          <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" data="static/images/github.svg" id="github_contact_icon"type="image/svg+xml" ></object>
-                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" data="static/images/email.svg" id="email_contact_icon" type="image/svg+xml" ></object>
+                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)"  class="contact_image" data="static/images/email.svg" id="email_contact_icon" type="image/svg+xml" ></object>
                     </div>
 
                 </div>
