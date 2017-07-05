@@ -8,6 +8,7 @@ a{
     color: black;
 }
 
+
 /*utils*/
 
 .flex-center-column{
@@ -341,6 +342,7 @@ body{
 }
 
 .contact_image{
+    opacity: 0.7;
     z-index: 100;
     left: 11%;
     top: 30%;

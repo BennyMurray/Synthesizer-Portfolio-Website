@@ -74,23 +74,17 @@
 
         function highlight(id){
             var key = document.getElementById(id);
-            // Get the SVG document inside the Object tag
-            var svgDoc = key.contentDocument;
-            // Get one of the SVG items by ID;
-            var svgItem = svgDoc.getElementById(id);
-            svgItem.style.fill = '#c25656';
+            key.style.opacity = '1';
         }
 
         function revert(id){
             var key = document.getElementById(id);
-            // Get the SVG document inside the Object tag
-            var svgDoc = key.contentDocument;
-            // Get one of the SVG items by ID;
-            var svgItem = svgDoc.getElementById(id);
-            svgItem.style.fill = 'black';
+            key.style.opacity = '0.7';
+
         }
 
         function goTo(url){
+            alert('poo');
             window.open(url);
         }
 
@@ -195,9 +189,9 @@
 
                     <div id="contact_titles">
                         <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
-                         <object onmouseover="highlight(this.id)"  onmouseout="revert(this.id)" onclick="goTo('https://www.linkedin.com/in/bennymurray/')" class="contact_image" data="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></object>
-                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" data="static/images/github.svg" id="github_contact_icon"type="image/svg+xml" ></object>
-                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)"  class="contact_image" data="static/images/email.svg" id="email_contact_icon" type="image/svg+xml" ></object>
+                        <a target="_blank" href="https://linkedin.com/in/bennymurray/"><img onmouseover="highlight(this.id)"  onmouseout="revert(this.id)"  class="contact_image" src="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></a>
+                        <a target="_blank" href="https://github.com/BennyMurray"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" src="static/images/github.svg" id="github_contact_icon"type="image/svg+xml"></a>
+                         <a target="top" href="mailto:bjamurray@gmail.com"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)"  class="contact_image" src="static/images/email.svg" id="email_contact_icon" type="image/svg+xml"></a>
                     </div>
 
                 </div>
