@@ -12,6 +12,14 @@
     flex-direction: column;
 }
 
+.contact_image{
+    left: 11%;
+    top: 36%;
+    position: absolute;
+    width: 20%;
+    cursor: pointer;
+}
+
 .flex-center-row{
     align-items: center;
     justify-content: center;

@@ -17,19 +17,13 @@
 
 
       function playnote(event) {
-
-
            var clickedElement = event.target.id;
 
-             oscillator = context.createOscillator();
+            oscillator = context.createOscillator();
             oscillator.connect(context.destination);
             oscillator.type = 'square';
             oscillator.frequency.value = note_frequencies[clickedElement];
             oscillator.start();
-
-
-
-
             var key = document.getElementById(clickedElement);
             // Get the SVG document inside the Object tag
             var svgDoc = key.contentDocument;
@@ -45,9 +39,6 @@
 
             oscillator.stop();
             oscillator.disconnect(context.destination);
-
-
-
            var clickedElement = event.target.id;
             var key = document.getElementById(clickedElement);
             // Get the SVG document inside the Object tag
@@ -62,7 +53,8 @@
         }
 
 
-        function addListeners() {
+
+        function addKeyboardListeners() {
           var keys = ['c0', 'd0', 'e0', 'f0', 'g0', 'a0', 'b0', 'c1', 'd1', 'e1', 'csharp0', 'dsharp0', 'fsharp0', 'gsharp0', 'asharp0', 'csharp1', 'dsharp1'];
           for(i=0;i<keys.length;i++){
 
@@ -74,6 +66,28 @@
                 endnote(event);
             };
           }
+        }
+
+        function addListeners(){
+          addKeyboardListeners();
+        }
+
+        function highlight(id){
+            var key = document.getElementById(id);
+            // Get the SVG document inside the Object tag
+            var svgDoc = key.contentDocument;
+            // Get one of the SVG items by ID;
+            var svgItem = svgDoc.getElementById(id);
+            svgItem.style.fill = '#c25656';
+        }
+
+        function revert(id){
+            var key = document.getElementById(id);
+            // Get the SVG document inside the Object tag
+            var svgDoc = key.contentDocument;
+            // Get one of the SVG items by ID;
+            var svgItem = svgDoc.getElementById(id);
+            svgItem.style.fill = 'black';
         }
 
     </script>
@@ -157,9 +171,11 @@
                     </div>
 
                     <div id="about_titles">
-                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">↩</h2>
-                        <p id="about_paragraph">I'm Ben and I'm a developer working in Python, Javacript, HTML & CSS. I build software
-                        for a living and also for fun.<br></p>
+                        <img id="languages" src="static/images/languages.svg" />
+                        <img id="loadingbars" src="static/images/loadingbars.svg" />
+                        <img id="skills" src="static/images/skills.svg" />
+                        <img id="skillbars" src="static/images/skillbars.svg" />
+
                     </div>
 
                     <div id="portfolio_titles">
@@ -174,9 +190,9 @@
 
                     <div id="contact_titles">
                         <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">↩</h2>
-                        <img class="contact_image" src="static/images/linkedin.svg"/>
-                        <img class="contact_image" id="github_contact_icon" src="static/images/github.svg"/>
-                        <img class="contact_image" id="email_contact_icon" src="static/images/email.svg"/>
+                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" data="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></object>
+                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" data="static/images/github.svg" id="github_contact_icon"type="image/svg+xml" ></object>
+                         <object onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" data="static/images/email.svg" id="email_contact_icon" type="image/svg+xml" ></object>
                     </div>
 
                 </div>

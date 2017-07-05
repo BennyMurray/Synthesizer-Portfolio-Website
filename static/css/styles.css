@@ -340,6 +340,7 @@ body{
 }
 
 #github_contact_icon{
+    cursor: pointer;
     left: 39%;
     top: 36.2%;
     width: 20.5%;
@@ -361,6 +362,38 @@ body{
 #about_titles{
     display: none;
 
+}
+
+#languages{
+    z-index:999;
+    position: absolute;
+    width: 26%;
+    top: 7%;
+    left: 6%;
+}
+
+#loadingbars{
+    z-index:999;
+    position: absolute;
+    width: 64%;
+    top: 7%;
+    left: 34%;
+}
+
+#skills{
+    z-index:999;
+    position: absolute;
+    width: 60%;
+    top: 88%;
+    left: 5%;
+}
+
+#skillbars{
+    z-index:999;
+    position: absolute;
+    width: 55%;
+    top: 64%;
+    left: 6%;
 }
 
 #about_paragraph{
