@@ -8,7 +8,28 @@ a{
     color: black;
 }
 
+#contact{
+    padding-top: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+}
 
+/*contact images*/
+#github{
+    width: 24.5%;
+}
+
+#linkedin{
+    width: 21%;
+}
+
+#email {
+    width: 22%;
+}
 /*utils*/
 
 .flex-center-column{
@@ -48,7 +69,6 @@ html{
 body{
     width: 100%;
     height: 100%;
-
 }
 
 #mobile-wrapper{
@@ -80,17 +100,20 @@ body{
   animation-iteration-count: infinite;
 }
 
-
 /* The animation code */
 @keyframes example {
     from {opacity: 0;}
     to {opacity: 1;}
 }
 
-
 .project-image{
     display: none;
     padding-top: 20%;
     width: 45%;
+}
 
+#skills{
+    display: none;
+    padding-top: 10%;
+    width: 68%;
 }
