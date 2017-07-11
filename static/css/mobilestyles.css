@@ -1,0 +1,96 @@
+@font-face {
+    font-family: alien-encounters;
+    src: url(Alien-Encounters-Solid-Regular.ttf);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+/*utils*/
+
+.flex-center-column{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center-row{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.absolute{
+    position: absolute;
+}
+
+
+/*macro structure*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+html{
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+
+}
+
+#mobile-wrapper{
+
+    font-weight: 200;
+    padding-top: 20%;
+    font-family: "Century Gothic";
+    color: #606060;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#title{
+    font-size: 1.2em;
+}
+
+#title:after {
+  visibility: visible;
+  content: '..';
+  background-color: #606060;
+  position: relative;
+  margin-left: 0;
+  animation-name: example;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+
+/* The animation code */
+@keyframes example {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+.project-image{
+    display: none;
+    padding-top: 20%;
+    width: 45%;
+
+}

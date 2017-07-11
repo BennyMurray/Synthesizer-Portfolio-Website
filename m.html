@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="static/css/mobilestyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="mobile-wrapper">
+       <p style="padding-top: 20%;" id="title"></p>
+       <img id="skills" style="display: none; padding-top: 10%; width: 80%; " src="static/images/skillsmobile.svg" />
+        <img id="projects-container" class="project-image" src="" />
+    </div>
+
+
+  <script src="static/js/typed.min.js"></script>
+    <script>
+
+    setTimeout(function(){document.getElementById('skills').style.display = 'inline-block'}, 5600);
+
+
+     var typed = new Typed("#title", {
+      // Waits 1000ms after typing "First"
+      strings: ["Hi! ^400", "I'm Ben :)  ^1000", "I'm a programmer ^1000", "I use tech like this: ^1600", "To make solutions like these: "],
+         showCursor: false
+    });
+
+    function animateProjects(i){
+        var images = ['hand.svg', 'scoop.svg', 'saft.svg', 'eye.svg', 'cogs.svg'];
+        var project = document.getElementById('projects-container');
+        project.style.display = 'inline-block';
+        project.src = 'static/static_mobile/' + images[i];
+    }
+
+
+    function changeImage()
+    {
+        if(x <  4) {
+            document.getElementById('skills').style.display = 'none';
+            var img = document.getElementById('projects-container');
+            img.style.display = 'inline-block';
+            img.src = 'static/static_mobile/' + images[x];
+            x++;
+            setTimeout(changeImage, 1000);
+        }
+    }
+    x = 0;
+
+    var images = ['hand.svg', 'scoop.svg', 'saft.svg', 'eye.svg', 'cogs.svg'];
+    setTimeout(changeImage, 8500);
+
+    </script>
+</body>
+</html>
+
+
