@@ -5,19 +5,20 @@
      <link rel="stylesheet" href="static/css/mobilestyles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+
 </head>
 <body>
 
     <div id="mobile-wrapper">
        <p style="padding-top: 16%; padding-right: 5%; padding-left: 5%; text-align: center;" id="title"></p>
-       <img id="skills" src="static/images/skillsmobile.svg"/>
+       <img id="skills" src=" ">
        <img id="projects-container" class="project-image" src=""/>
        <div id="contact">
-          <img onclick="window.location = 'http://www.github.combennymurray';" id="github" src="static/static_mobile/github.svg"/>
-           <img onclick="window.location = 'http://www.linkedin.com/in/bennymurray';" id="linkedin" src="static/static_mobile/linkedin.svg"/>
-           <img  onclick="window.location = 'mailto:bjamurray@gmail.com';" id="email" src="static/static_mobile/email.svg"/>
+          <img onclick="window.location = 'http://www.github.com/bennymurray';" id="github" src="static/static_mobile/github.svg"/>
+          <img onclick="window.location = 'http://www.linkedin.com/in/bennymurray';" id="linkedin" src="static/static_mobile/linkedin.svg"/>
+          <img onclick="window.location.href = 'mailto:bjamurray@gmail.com';" id="email" src="static/static_mobile/email.svg"/>
        </div>
-        <div id="replay" style="padding-top: 20%; display: none; ">replay</div>
+        <div onclick="replay()" id="replay" style="padding-top: 20%; display: none; ">replay</div>
     </div>
 
   <script src="static/js/typed.min.js"></script>
@@ -26,7 +27,9 @@
    var images = ['hand.svg', 'scoop.svg', 'saft.svg', 'eye.svg', 'cogs.svg'];
    var counter = 0;
 
+   // Triggers animation sequence
    (function animate(){
+        document.getElementById('skills').src = preventCache('static/static_mobile/skillsmobile.svg');
         animateTyping();
         setTimeout(animateSkills, 5600);
         setTimeout(animateProjects, 8200);
@@ -59,6 +62,7 @@
             setTimeout(animateProjects, 1000);
         }else if(counter === images.length){
              document.getElementById('projects-container').style.display = 'none';
+             counter = 0;
         }
     }
 
@@ -68,6 +72,21 @@
         document.getElementById('replay').style.display = 'inline-block';
     }
 
+    // Replays animation
+    function replay(){
+        document.getElementById('contact').style.display = 'none';
+        document.getElementById('replay').style.display = 'none';
+        animateTyping();
+        setTimeout(animateSkills, 5600);
+        setTimeout(animateProjects, 8200);
+        setTimeout(animateContactScreen, 14700);
+    }
+
+    function preventCache(path) {
+        var random_number = Math.floor((Math.random() * 10000) + 1).toString();
+        source = path + '?dummy=' + random_number;
+        return source;
+    }
 
     </script>
 </body>
