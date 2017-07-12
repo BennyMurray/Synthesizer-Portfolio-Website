@@ -13,9 +13,9 @@
        <img id="skills" src="static/images/skillsmobile.svg"/>
        <img id="projects-container" class="project-image" src=""/>
        <div id="contact">
-           <img id="github" src="static/static_mobile/github.svg"/>
-           <img id="linkedin" src="static/static_mobile/linkedin.svg"/>
-           <img id="email" src="static/static_mobile/email.svg"/>
+           <a href="www.github.com/bennymurray"><img id="github" src="static/static_mobile/github.svg"/></a>
+           <a href="www.linkedin.com/in/bennymurray/"><img id="linkedin" src="static/static_mobile/linkedin.svg"/></a>
+           <a href="mailto:bjamurray@gmail.com"><img id="email" src="static/static_mobile/email.svg"/></a>
        </div>
         <div id="replay" style="padding-top: 20%; display: none; ">replay</div>
     </div>/static_mobile/
@@ -30,14 +30,14 @@
         animateTyping();
         setTimeout(animateSkills, 5600);
         setTimeout(animateProjects, 8200);
-        setTimeout(animateContactScreen, 1700);
+        setTimeout(animateContactScreen, 14700);
     })();
 
    // Animates text
    function animateTyping() {
        var typed = new Typed("#title", {
            // Waits 1000ms after typing "First"
-           strings: ["Hi! ^400", "I'm Ben :)  ^1000", "I'm a programmer ^1000", "I use tech like this: ^1600", "To make solutions like these: ^4800", "Why not get in touch ^1000 or have a gander at some of my code?"],
+           strings: ["Hi! ^400", "I'm Ben :)  ^1000", "I'm a programmer ^1000", "I use tech like this: ^1600", "To make solutions like these: ^4800", "Why not get in touch ^4800 or have a gander at some of my code?"],
            showCursor: false
        });
    }
