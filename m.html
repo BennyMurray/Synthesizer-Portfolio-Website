@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
      <link rel="stylesheet" href="static/css/mobilestyles.css">
+    <link rel="stylesheet" href="static/css/animate.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
 
@@ -13,7 +14,7 @@
        <p style="padding-top: 16%; padding-right: 5%; padding-left: 5%; text-align: center;" id="title"></p>
        <img id="skills" src=" ">
        <img id="projects-container" class="project-image" src=""/>
-       <div id="contact">
+       <div id="contact" class="animated bounceInUp">
           <img onclick="window.location = 'http://www.github.com/bennymurray';" id="github" src="static/static_mobile/github.svg"/>
           <img onclick="window.location = 'http://www.linkedin.com/in/bennymurray';" id="linkedin" src="static/static_mobile/linkedin.svg"/>
           <img onclick="window.location.href = 'mailto:bjamurray@gmail.com';" id="email" src="static/static_mobile/email.svg"/>
@@ -22,6 +23,7 @@
     </div>
 
   <script src="static/js/typed.min.js"></script>
+
   <script>
 
    var images = ['hand.svg', 'scoop.svg', 'saft.svg', 'eye.svg', 'cogs.svg'];
@@ -31,16 +33,17 @@
    (function animate(){
         document.getElementById('skills').src = preventCache('static/static_mobile/skillsmobile.svg');
         animateTyping();
-        setTimeout(animateSkills, 5600);
+        setTimeout(animateSkills, 5400);
         setTimeout(animateProjects, 8200);
-        setTimeout(animateContactScreen, 14700);
+        setTimeout(animateContactScreen, 14300);
     })();
 
    // Animates text
    function animateTyping() {
        var typed = new Typed("#title", {
            // Waits 1000ms after typing "First"
-           strings: ["Hi! ^400", "I'm Ben :)  ^1000", "I'm a programmer ^1000", "I use tech like this: ^1600", "To make solutions like these: ^4800", "Why not get in touch ^4800 or have a gander at some of my code?"],
+           strings: ["Hi! ^400", "I'm Ben :)  ^1000", "I'm a programmer ^1000", "I use tech like this: ^1600",
+               "To make solutions like these: ^4800", "Why not get in touch?"],
            showCursor: false
        });
    }
@@ -48,7 +51,7 @@
     // Animates skills (languages and technologies)
     function animateSkills(){
     document.getElementById('skills').style.display = 'inline-block';
-    setTimeout(function(){document.getElementById('skills').style.display = 'none';}, 2400);
+    setTimeout(function(){document.getElementById("skills").style.display = 'none';}, 2200);
    }
 
     // Animates projects
@@ -76,10 +79,11 @@
     function replay(){
         document.getElementById('contact').style.display = 'none';
         document.getElementById('replay').style.display = 'none';
+        document.getElementById('skills').src = preventCache('static/static_mobile/skillsmobile.svg');
         animateTyping();
-        setTimeout(animateSkills, 5600);
-        setTimeout(animateProjects, 8200);
-        setTimeout(animateContactScreen, 14700);
+        setTimeout(animateSkills, 4600);
+        setTimeout(animateProjects, 7200);
+        setTimeout(animateContactScreen, 13300);
     }
 
     function preventCache(path) {

@@ -24,6 +24,8 @@ a{
 }
 
 #linkedin{
+    position: relative;
+    top: 4%;
     width: 21%;
 }
 
