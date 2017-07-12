@@ -8,92 +8,100 @@
     <title>Title</title>
 
 </head>
-<body>
+    <body>
+        <div id="mobile-wrapper">
 
-    <div id="mobile-wrapper">
-       <p style="padding-top: 16%; padding-right: 5%; padding-left: 5%; text-align: center;" id="title"></p>
-       <img id="skills" src=" ">
-       <img id="projects-container" class="project-image" src=""/>
-       <div id="contact" class="animated bounceInUp">
-          <img onclick="window.location = 'http://www.github.com/bennymurray';" id="github" src="static/static_mobile/github.svg"/>
-          <img onclick="window.location = 'http://www.linkedin.com/in/bennymurray';" id="linkedin" src="static/static_mobile/linkedin.svg"/>
-          <img onclick="window.location.href = 'mailto:bjamurray@gmail.com';" id="email" src="static/static_mobile/email.svg"/>
-       </div>
-        <div onclick="replay()" id="replay" style="padding-top: 20%; display: none; ">replay</div>
-    </div>
+           <!--Typed text-->
+           <p style="padding-top: 16%; padding-right: 5%; padding-left: 5%; text-align: center;" id="title"></p>
 
-  <script src="static/js/typed.min.js"></script>
+           <!--Skills-->
+           <img id="skills" src=" ">
 
-  <script>
+           <!--Projects-->
+           <img id="projects-container" class="project-image" src=""/>
 
-   var images = ['hand.svg', 'scoop.svg', 'saft.svg', 'eye.svg', 'cogs.svg'];
-   var counter = 0;
+           <!--Contact-->
+           <div id="contact" class="animated bounceInUp">
+              <img onclick="window.location = 'http://www.github.com/bennymurray';" id="github" src="static/static_mobile/github.svg"/>
+              <img onclick="window.location = 'http://www.linkedin.com/in/bennymurray';" id="linkedin" src="static/static_mobile/linkedin.svg"/>
+              <img onclick="window.location.href = 'mailto:bjamurray@gmail.com';" id="email" src="static/static_mobile/email.svg"/>
+           </div>
 
-   // Triggers animation sequence
-   (function animate(){
-        document.getElementById('skills').src = preventCache('static/static_mobile/skillsmobile.svg');
-        animateTyping();
-        setTimeout(animateSkills, 5400);
-        setTimeout(animateProjects, 8200);
-        setTimeout(animateContactScreen, 14300);
-    })();
+           <!--Replay-->
+           <div onclick="replay()" id="replay" style="padding-top: 20%; display: none; ">replay</div>
 
-   // Animates text
-   function animateTyping() {
-       var typed = new Typed("#title", {
-           // Waits 1000ms after typing "First"
-           strings: ["Hi! ^400", "I'm Ben :)  ^1000", "I'm a programmer ^1000", "I use tech like this: ^1600",
-               "To make solutions like these: ^4800", "Why not get in touch?"],
-           showCursor: false
-       });
-   }
+        </div>
 
-    // Animates skills (languages and technologies)
-    function animateSkills(){
-    document.getElementById('skills').style.display = 'inline-block';
-    setTimeout(function(){document.getElementById("skills").style.display = 'none';}, 2200);
-   }
+      <script src="static/js/typed.min.js"></script>
+      <script>
+       var images = ['hand.svg', 'scoop.svg', 'saft.svg', 'eye.svg', 'cogs.svg'];
+       var counter = 0;
 
-    // Animates projects
-    function animateProjects()
-    {
-        var projects_container = document.getElementById('projects-container');
-        if(counter <  images.length) {
-            projects_container.style.display = 'inline-block';
-            projects_container.src = 'static/static_mobile/' + images[counter];
-            counter++;
-            setTimeout(animateProjects, 1000);
-        }else if(counter === images.length){
-             document.getElementById('projects-container').style.display = 'none';
-             counter = 0;
+       // Triggers animation sequence
+       (function animate(){
+            document.getElementById('skills').src = preventCache('static/static_mobile/skillsmobile.svg');
+            animateTyping();
+            setTimeout(animateSkills, 5400);
+            setTimeout(animateProjects, 8200);
+            setTimeout(animateContactScreen, 14300);
+        })();
+
+       // Animates text
+       function animateTyping() {
+           var typed = new Typed("#title", {
+               // Waits 1000ms after typing "First"
+               strings: ["Hi! ^400", "I'm Ben :)  ^1000", "I'm a programmer ^1000", "I use tech like this: ^1600",
+                   "To make solutions like these: ^4800", "Why not get in touch?"],
+               showCursor: false
+           });
+       }
+
+        // Animates skills (languages and technologies)
+        function animateSkills(){
+        document.getElementById('skills').style.display = 'inline-block';
+        setTimeout(function(){document.getElementById("skills").style.display = 'none';}, 2200);
+       }
+
+        // Animates projects
+        function animateProjects()
+        {
+            var projects_container = document.getElementById('projects-container');
+            if(counter <  images.length) {
+                projects_container.style.display = 'inline-block';
+                projects_container.src = 'static/static_mobile/' + images[counter];
+                counter++;
+                setTimeout(animateProjects, 1000);
+            }else if(counter === images.length){
+                 document.getElementById('projects-container').style.display = 'none';
+                 counter = 0;
+            }
         }
-    }
 
-    // Animates projects
-    function animateContactScreen() {
-        document.getElementById('contact').style.display = 'flex';
-        document.getElementById('replay').style.display = 'inline-block';
-    }
+        // Animates projects
+        function animateContactScreen() {
+            document.getElementById('contact').style.display = 'flex';
+            document.getElementById('replay').style.display = 'inline-block';
+        }
 
-    // Replays animation
-    function replay(){
-        document.getElementById('contact').style.display = 'none';
-        document.getElementById('replay').style.display = 'none';
-        document.getElementById('skills').src = preventCache('static/static_mobile/skillsmobile.svg');
-        animateTyping();
-        setTimeout(animateSkills, 4600);
-        setTimeout(animateProjects, 7200);
-        setTimeout(animateContactScreen, 13300);
-    }
+        // Replays animation
+        function replay(){
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('replay').style.display = 'none';
+            document.getElementById('skills').src = preventCache('static/static_mobile/skillsmobile.svg');
+            animateTyping();
+            setTimeout(animateSkills, 4600);
+            setTimeout(animateProjects, 7200);
+            setTimeout(animateContactScreen, 13300);
+        }
 
-    function preventCache(path) {
-        var random_number = Math.floor((Math.random() * 10000) + 1).toString();
-        source = path + '?dummy=' + random_number;
-        return source;
-    }
+        function preventCache(path) {
+            var random_number = Math.floor((Math.random() * 10000) + 1).toString();
+            source = path + '?dummy=' + random_number;
+            return source;
+        }
 
-    </script>
-</body>
+        </script>
+    </body>
 </html>
 
 

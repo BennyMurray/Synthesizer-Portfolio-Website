@@ -1,252 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ben Murray</title>
-    <link rel="stylesheet" href="static/css/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script type="text/javascript">
-
-      if (screen.width <= 800) {
-        window.location = "benmurray.me/m.html";
-      }
-
-    </script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-     <script type="text/javascript">
-     var context = new AudioContext();
-     var gainNode = context.createGain();
-     var note_frequencies =  {'c0': 261.626, 'dsharp0': 277.183, 'd0': 293.665, 'csharp0': 311.127, 'e0': 329.628, 'f0': 349.228,
-         'fsharp0': 369.994, 'g0':391.995, 'gsharp0': 415.305, 'a0':  440, 'asharp0': 466.164, 'b0': 493.883, 'c1': 523.251,
-         'csharp1': 554.365, 'd1': 587.330, 'dsharp1': 622.254, 'e1':659.255};
-
-     var active_key_colours = ['#2DAEFD', '#49F770', '#FFED5E', '#FFAF42', '#FFA4FF', '#EF5B5B', '#C457C4'];
-
-        function getVolume(){
-            var element = document.getElementById('dial');
-            var position = element.getBoundingClientRect();
-            var y = (637 - position.top)/460;
-            return y;
-        }
-
-      function playnote(event) {
-           var clickedElement = event.target.id;
-
-            oscillator = context.createOscillator();
-            oscillator.connect(gainNode);
-            gainNode.connect(context.destination)
-            oscillator.type = 'square';
-            oscillator.frequency.value = note_frequencies[clickedElement];
-            gainNode.gain.value = getVolume();
-            oscillator.start();
-
-            var key = document.getElementById(clickedElement);
-            // Get the SVG document inside the Object tag
-            var svgDoc = key.contentDocument;
-            // Get one of the SVG items by ID;
-            var svgItem = svgDoc.getElementById(clickedElement);
-            // Select a random colour from pallette to fill the key
-            active_key_colour = active_key_colours[Math.floor(Math.random()*active_key_colours.length)];
-
-            svgItem.style.fill = active_key_colour;
-        }
-
-         function endnote(event) {
-
-            oscillator.stop();
+    <head>
+        <meta charset="UTF-8">
+        <title>Ben Murray</title>
+        <link rel="stylesheet" href="static/css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="static/js/propeller.min.js"></script>
 
 
-           var clickedElement = event.target.id;
-            var key = document.getElementById(clickedElement);
-            // Get the SVG document inside the Object tag
-            var svgDoc = key.contentDocument;
-            // Get one of the SVG items by ID;
-            var svgItem = svgDoc.getElementById(clickedElement);
-            if(clickedElement.length > 2){
-                svgItem.style.fill = 'black';
-            }else{
 
-               svgItem.style.fill = '#eaeaea';
+        <script>
+
+        function onReady(callback) {
+        var intervalID = window.setInterval(checkReady, 1000);
+        function checkReady() {
+            if (document.getElementsByTagName('body')[0] !== undefined) {
+                window.clearInterval(intervalID);
+                callback.call(this);
+                }
             }
         }
 
+        function show(id, value) {
+            document.getElementById('flex-wrapper').style.opacity = '1';
+        }
+
+        onReady(function () {
+            show('page', true);
+            show('loading', false);
+        });
 
 
-        function addKeyboardListeners() {
-          var keys = ['c0', 'd0', 'e0', 'f0', 'g0', 'a0', 'b0', 'c1', 'd1', 'e1', 'csharp0', 'dsharp0', 'fsharp0', 'gsharp0', 'asharp0', 'csharp1', 'dsharp1'];
-          for(i=0;i<keys.length;i++){
-
-            var key = document.getElementById(keys[i]);
-            key.getSVGDocument().onmouseover = function (event){
-                playnote(event);
-            };
-            key.getSVGDocument().onmouseout = function (event){
-                endnote(event);
-            };
+        </script>
+        <!--Mobile redirect-->
+        <script type="text/javascript">
+          if (screen.width <= 800) {
+            window.location = "http://benmurray.me/m.html";
           }
-        }
+        </script>
 
-        function addListeners(){
-          addKeyboardListeners();
-        }
-
-        function highlight(id){
-            var key = document.getElementById(id);
-            key.style.opacity = '1';
-        }
-
-        function revert(id){
-            var key = document.getElementById(id);
-            key.style.opacity = '0.7';
-
-        }
-
-        function goTo(url){
-            alert('poo');
-            window.open(url);
-        }
-
-    </script>
+    </head>
+    <body onload="addListeners();">
 
 
-</head>
-<body onload="addListeners();">
+        <!--Wrapper-->
+        <div id="flex-wrapper" class="flex-center-column">
 
-    <div id="flex-wrapper" class="flex-center-column">
+            <!-- main page-->
+            <div id="main_page"  class="flex-center-column">
+                <div id="keyboard_container" class="flex-center-column">
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="static/js/propeller.min.js"></script>
+                    <!--keyboard base-->
+                    <img id="keyboard_base" src="static/images/keyboard_base.svg"/>
 
+                    <!--keyboard shadow-->
+                    <div id="keyboard_shadow"></div>
 
-  <script>
-  $( function() {
-    $( "#dial" ).draggable({ axis: "y", containment: "#dial_container", scroll: false })
+                    <!--knobs and phongs-->
+                    <img src="static/images/knob.svg" id="knob_1" class="knob"/>
+                    <img src="static/images/knob.svg" id="knob_2" class="knob"/>
+                    <img src="static/images/knob.svg" id="knob_3" class="knob"/>
+                    <img src="static/images/knob.svg" id="knob_4" class="knob"/>
 
-
-  } );
-  </script>
-
-
-        <!-- main page-->
-        <div id="main_page"  class="flex-center-column">
-            <div id="keyboard_container" class="flex-center-column">
-
-                <!--keyboard base-->
-                <img id="keyboard_base" src="static/images/keyboard_base.svg"/>
-
-                <!--keyboard shadow-->
-                <div id="keyboard_shadow"></div>
-
-                <!--knobs and phongs-->
-                <img src="static/images/knob.svg" id="knob_1" class="knob"/>
-                <img src="static/images/knob.svg" id="knob_2" class="knob"/>
-                <img src="static/images/knob.svg" id="knob_3" class="knob"/>
-                <img src="static/images/knob.svg" id="knob_4" class="knob"/>
-
-
-                <!--dial-->
-                <div id="dial_container">
-                    <img src="static/images/dial.svg" id="dial"/>
-                </div>
-
-                <!--screen-->
-                <img src="static/images/lines.gif" id="lines"/>
-                <img src="static/images/interlacing.svg" id="interlacing"/>
-                <img src="static/images/screen_reflection.svg" id="screen_reflection"/>
-
-                <!--keys-->
-                <object class="key" data="static/images/c0.svg" id="c0" type="image/svg+xml"></object>
-                <object class="key" data="static/images/d0.svg" id="d0" type="image/svg+xml" ></object>
-                <object class="key" data="static/images/e0.svg" id="e0" type="image/svg+xml" ></object>
-                <object class="key" data="static/images/f0.svg" id="f0" type="image/svg+xml" ></object>
-                <object class="key" data="static/images/g0.svg" id="g0" type="image/svg+xml" ></object>
-                <object class="key" data="static/images/a0.svg" id="a0" type="image/svg+xml" ></object>
-                <object class="key" data="static/images/b0.svg" id="b0" type="image/svg+xml" ></object>
-                <object class="key" data="static/images/c1.svg" id="c1" type="image/svg+xml"></object>
-                <object class="key" data="static/images/d1.svg" id="d1" type="image/svg+xml" ></object>
-                <object class="key" data="static/images/e1.svg" id="e1" type="image/svg+xml" ></object>
-                <object class="sharp_key" data="static/images/csharp0.svg" id="csharp0" type="image/svg+xml" ></object>
-                <object class="sharp_key" data="static/images/dsharp0.svg" id="dsharp0" type="image/svg+xml" ></object>
-                <object class="sharp_key" data="static/images/fsharp0.svg" id="fsharp0" type="image/svg+xml" ></object>
-                <object class="sharp_key" data="static/images/gsharp0.svg" id="gsharp0" type="image/svg+xml" ></object>
-                <object class="sharp_key" data="static/images/asharp0.svg" id="asharp0" type="image/svg+xml" ></object>
-                <object class="sharp_key" data="static/images/csharp1.svg" id="csharp1" type="image/svg+xml" ></object>
-                <object class="sharp_key" data="static/images/dsharp1.svg" id="dsharp1" type="image/svg+xml" ></object>
-
-
-
-
-                <!--screen_title-->
-                <div id="screen_menu">
-
-                    <div id="menu_titles">
-                        <h2 onmouseover="getVolume()" onclick="changePage('about_titles')" class="screen_title" id="screen_title_about">ABOUT</h2>
-                        <h2 onclick="changePage('portfolio_titles')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
-                        <h2 onclick="changePage('contact_titles')" class="screen_title" id="screen_title_contact">CONTACT</h2>
+                    <!--dial-->
+                    <div id="dial_container">
+                        <img src="static/images/dial.svg" id="dial"/>
                     </div>
 
-                    <div id="about_titles">
-                        <img id="languages" src="static/images/languages.svg" />
-                        <img id="loadingbars" src="static/images/loadingbars.svg" />
-                        <img id="skills" src="static/images/skills.svg" />
-                        <img id="skillbars" src="static/images/skillbars.svg" />
-                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
+                    <!--screen-->
+                    <img src="static/images/lines.gif" id="lines"/>
+                    <img src="static/images/interlacing.svg" id="interlacing"/>
+                    <img src="static/images/screen_reflection.svg" id="screen_reflection"/>
+
+                    <!--keys-->
+                    <object class="key" data="static/images/c0.svg" id="c0" type="image/svg+xml"></object>
+                    <object class="key" data="static/images/d0.svg" id="d0" type="image/svg+xml" ></object>
+                    <object class="key" data="static/images/e0.svg" id="e0" type="image/svg+xml" ></object>
+                    <object class="key" data="static/images/f0.svg" id="f0" type="image/svg+xml" ></object>
+                    <object class="key" data="static/images/g0.svg" id="g0" type="image/svg+xml" ></object>
+                    <object class="key" data="static/images/a0.svg" id="a0" type="image/svg+xml" ></object>
+                    <object class="key" data="static/images/b0.svg" id="b0" type="image/svg+xml" ></object>
+                    <object class="key" data="static/images/c1.svg" id="c1" type="image/svg+xml"></object>
+                    <object class="key" data="static/images/d1.svg" id="d1" type="image/svg+xml" ></object>
+                    <object class="key" data="static/images/e1.svg" id="e1" type="image/svg+xml" ></object>
+                    <object class="sharp_key" data="static/images/csharp0.svg" id="csharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key" data="static/images/dsharp0.svg" id="dsharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key" data="static/images/fsharp0.svg" id="fsharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key" data="static/images/gsharp0.svg" id="gsharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key" data="static/images/asharp0.svg" id="asharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key" data="static/images/csharp1.svg" id="csharp1" type="image/svg+xml" ></object>
+                    <object class="sharp_key" data="static/images/dsharp1.svg" id="dsharp1" type="image/svg+xml" ></object>
+
+                    <!--screen_title-->
+                    <div id="screen_menu">
+
+                        <div id="menu_titles">
+                            <h2 onmouseover="getVolume()" onclick="changePage('about_titles')" class="screen_title" id="screen_title_about">ABOUT</h2>
+                            <h2 onclick="changePage('portfolio_titles')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
+                            <h2 onclick="changePage('contact_titles')" class="screen_title" id="screen_title_contact">CONTACT</h2>
+                        </div>
+
+                        <div id="about_titles">
+                            <img id="languages" src="static/images/languages.svg" />
+                            <img id="loadingbars" src="static/images/loadingbars.svg" />
+                            <img id="skills" src="static/images/skills.svg" />
+                            <img id="skillbars" src="static/images/skillbars.svg" />
+                            <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
+                        </div>
+
+                        <div id="portfolio_titles">
+                            <a target="_blank" href="https://github.com/BennyMurray/Scoop"><h6 class="portfolio_subtitle">Craft Beer Search Engine</h6></a>
+                            <a target="_blank" href="https://github.com/BennyMurray/Saft.ie-"><h6 class="portfolio_subtitle">Daft.ie api</h6></a>
+                            <a target="_black" href="https://github.com/BennyMurray/eye-Pi"><h6 class="portfolio_subtitle">Motion Detection Recorder</h6></a>
+                            <a target="_black" href="https://github.com/BennyMurray/Synthesizer-Portfolio-Website"><h6 class="portfolio_subtitle">Synthesizer Portfolio Website</h6></a>
+                            <a target="_black" href="https://github.com/BennyMurray/Russian-Grammar-Analyser"><h6 class="portfolio_subtitle">Russian Grammar Analyser</h6></a>
+                            <a target="_black" href="https://github.com/BennyMurray/Fuel-o-Tron"><h6 class="portfolio_subtitle">Fuel Management System</h6></a>
+                            <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
+                        </div>
+
+                        <div id="contact_titles">
+                            <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
+                            <a target="_blank" href="https://linkedin.com/in/bennymurray/"><img onmouseover="highlight(this.id)"  onmouseout="revert(this.id)"  class="contact_image" src="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></a>
+                            <a target="_blank" href="https://github.com/BennyMurray"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" src="static/images/github.svg" id="github_contact_icon"type="image/svg+xml"></a>
+                             <a target="top" href="mailto:bjamurray@gmail.com"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)"  class="contact_image" src="static/images/email.svg" id="email_contact_icon" type="image/svg+xml"></a>
+                        </div>
 
                     </div>
+                        <img id="keyboard_foreshadow" src="static/images/keyboard_shadow.svg"/>
+                </div><!--end keyboard container-->
+            </div><!--end main_page-->
+        </div><!--end flex-wrapper-->
 
-                    <div id="portfolio_titles">
-                        <a target="_blank" href="https://github.com/BennyMurray/Scoop"><h6 class="portfolio_subtitle">Craft Beer Search Engine</h6></a>
-                        <a target="_blank" href="https://github.com/BennyMurray/Saft.ie-"><h6 class="portfolio_subtitle">Daft.ie api</h6></a>
-                        <a target="_black" href="https://github.com/BennyMurray/eye-Pi"><h6 class="portfolio_subtitle">Motion Detection Recorder</h6></a>
-                        <a target="_black" href="https://github.com/BennyMurray/Synthesizer-Portfolio-Website"><h6 class="portfolio_subtitle">Synthesizer Portfolio Website</h6></a>
-                        <a target="_black" href="https://github.com/BennyMurray/Russian-Grammar-Analyser"><h6 class="portfolio_subtitle">Russian Grammar Analyser</h6></a>
-                        <a target="_black" href="https://github.com/BennyMurray/Fuel-o-Tron"><h6 class="portfolio_subtitle">Fuel Management System</h6></a>
-                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
-                    </div>
+        <script>
 
-                    <div id="contact_titles">
-                        <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
-                        <a target="_blank" href="https://linkedin.com/in/bennymurray/"><img onmouseover="highlight(this.id)"  onmouseout="revert(this.id)"  class="contact_image" src="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></a>
-                        <a target="_blank" href="https://github.com/BennyMurray"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" src="static/images/github.svg" id="github_contact_icon"type="image/svg+xml"></a>
-                         <a target="top" href="mailto:bjamurray@gmail.com"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)"  class="contact_image" src="static/images/email.svg" id="email_contact_icon" type="image/svg+xml"></a>
-                    </div>
+             // Renders envelope knobs rotatable
+            new Propeller(document.getElementById('knob_1'), {inertia: 0, angle:0});
+            new Propeller(document.getElementById('knob_2'), {inertia: 0, angle:0});
+            new Propeller(document.getElementById('knob_3'), {inertia: 0, angle:0});
+            new Propeller(document.getElementById('knob_4'), {inertia: 0, angle:0});
 
-                </div>
-                    <img id="keyboard_foreshadow" src="static/images/keyboard_shadow.svg"/>
-            </div><!--end keyboard container-->
-        </div><!--end main_page-->
-        
-<script>
-    new Propeller(document.getElementById('knob_1'), {inertia: 0, angle:0});
-    new Propeller(document.getElementById('knob_2'), {inertia: 0, angle:0});
-    new Propeller(document.getElementById('knob_3'), {inertia: 0, angle:0});
-    new Propeller(document.getElementById('knob_4'), {inertia: 0, angle:0});
-</script>
+              //Renders volume dial draggable
+              $( function() {
+                $( "#dial" ).draggable({ axis: "y", containment: "#dial_container", scroll: false })
 
+              });
 
-    </div><!--end flex-wrapper-->
+            // Closes all submenus
+            function closeAll(){
+                document.getElementById('portfolio_titles').style.display = 'none';
+                document.getElementById('menu_titles').style.display = 'none';
+                document.getElementById('contact_titles').style.display = 'none';
+                document.getElementById('about_titles').style.display = 'none';
+            }
 
-    <script>
+            function changePage(page){
+                closeAll();
+                document.getElementById(page).style.display = 'block';
+            }
 
+              // Synth Logic
+           var context = new AudioContext();
+           var gainNode = context.createGain();
+           var note_frequencies =  {'c0': 261.626, 'dsharp0': 277.183, 'd0': 293.665, 'csharp0': 311.127, 'e0': 329.628, 'f0': 349.228,
+             'fsharp0': 369.994, 'g0':391.995, 'gsharp0': 415.305, 'a0':  440, 'asharp0': 466.164, 'b0': 493.883, 'c1': 523.251,
+             'csharp1': 554.365, 'd1': 587.330, 'dsharp1': 622.254, 'e1':659.255};
+           var active_key_colours = ['#2DAEFD', '#49F770', '#FFED5E', '#FFAF42', '#FFA4FF', '#EF5B5B', '#C457C4'];
 
-        function closeAll(){
-            document.getElementById('portfolio_titles').style.display = 'none';
-            document.getElementById('menu_titles').style.display = 'none';
-            document.getElementById('contact_titles').style.display = 'none';
-            document.getElementById('about_titles').style.display = 'none';
-        }
+          function getVolume(){
+              var element = document.getElementById('dial');
+              var position = element.getBoundingClientRect();
+              y = (637 - position.top)/460;
+              return y;
+          }
 
-        function changePage(page){
-            closeAll();
-            document.getElementById(page).style.display = 'block';
+          function playnote(event) {
+               var clickedElement = event.target.id;
 
-        }
+                // Create synth components and connect them
+                oscillator = context.createOscillator();
+                oscillator.connect(gainNode);
+                gainNode.connect(context.destination)
+                oscillator.type = 'square';
 
-    </script>
+                // Play note
+                oscillator.frequency.value = note_frequencies[clickedElement];
+                gainNode.gain.value = getVolume();
+                oscillator.start();
 
-</body>
+                // Get clicked Element
+                var key = document.getElementById(clickedElement);
+
+                // Get the SVG document inside the Object tag
+                var svgDoc = key.contentDocument;
+
+                // Get one of the SVG items by ID;
+                var svgItem = svgDoc.getElementById(clickedElement);
+
+                // Select a random colour from pallette to fill the key
+                active_key_colour = active_key_colours[Math.floor(Math.random()*active_key_colours.length)];
+                svgItem.style.fill = active_key_colour;
+            }
+
+             function endnote(event) {
+                oscillator.stop();
+                var clickedElement = event.target.id;
+                var key = document.getElementById(clickedElement);
+
+                // Get the SVG document inside the Object tag
+                var svgDoc = key.contentDocument;
+                // Get one of the SVG items by ID;
+                var svgItem = svgDoc.getElementById(clickedElement);
+
+                // Revert key color to normal
+                if(clickedElement.length > 2){
+                    svgItem.style.fill = 'black';
+                }else{
+                   svgItem.style.fill = '#eaeaea';
+                }
+            }
+
+            function addKeyboardListeners() {
+              var keys = ['c0', 'd0', 'e0', 'f0', 'g0', 'a0', 'b0', 'c1', 'd1', 'e1', 'csharp0', 'dsharp0', 'fsharp0', 'gsharp0', 'asharp0', 'csharp1', 'dsharp1'];
+              for(i=0;i<keys.length;i++){
+                var key = document.getElementById(keys[i]);
+                key.getSVGDocument().onmouseover = function (event){
+                    playnote(event);
+                };
+                key.getSVGDocument().onmouseout = function (event){
+                    endnote(event);
+                };
+              }
+            }
+
+            function addListeners(){
+              // May need to add more listeners in the future
+              addKeyboardListeners();
+            }
+
+            // For foxusing on external svgs that can't be accessed via css
+            function highlight(id){
+                var key = document.getElementById(id);
+                key.style.opacity = '1';
+            }
+
+            // Reverts svgs to normal opacity
+            function revert(id){
+                var key = document.getElementById(id);
+                key.style.opacity = '0.7';
+            }
+        </script>
+    </body>
 </html>

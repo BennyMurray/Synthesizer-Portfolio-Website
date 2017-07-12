@@ -3,11 +3,11 @@
     src: url(Alien-Encounters-Regular.ttf);
 }
 
+
 a{
     text-decoration: none;
     color: black;
 }
-
 
 /*utils*/
 
@@ -52,6 +52,8 @@ body{
 }
 
 #flex-wrapper{
+    opacity: 0;
+    transition: opacity 1s;
     height: 100%;
     width: 100%;
 }

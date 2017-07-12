@@ -54,13 +54,10 @@ a{
 
 
 /*macro structure*/
-
 *{
     margin: 0px;
     padding: 0px;
 }
-
-
 
 html{
     width: 100%;
@@ -74,7 +71,6 @@ body{
 }
 
 #mobile-wrapper{
-
     font-weight: 200;
     padding-top: 20%;
     font-family: "Century Gothic";
