@@ -161,6 +161,11 @@
             function changePage(page){
                 closeAll();
                 document.getElementById(page).style.display = 'block';
+                if(page==='menu_titles'){
+                    exitMenu();
+                }else{
+                    enterMenu();
+                }
             }
 
               // Synth Logic
