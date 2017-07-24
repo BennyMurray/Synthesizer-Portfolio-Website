@@ -9,9 +9,6 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="static/js/propeller.min.js"></script>
 
-
-
-
         <script>
 
         function onReady(callback) {
@@ -26,15 +23,12 @@
 
         function show(id, value) {
             document.getElementById('flex-wrapper').style.opacity = '1';
-
-
         }
 
         onReady(function () {
             show('page', true);
             show('loading', false);
         });
-
 
         </script>
         <!--Mobile redirect-->
@@ -47,7 +41,6 @@
     </head>
     <body onload="addListeners();">
 
-
         <!--Wrapper-->
         <div id="flex-wrapper" class="flex-center-column">
 
@@ -56,7 +49,7 @@
                 <div id="keyboard_container" class="flex-center-column">
 
                     <!--keyboard base-->
-                    <img onclick="gameOfThrones()" id="keyboard_base" src="static/images/keyboard_base.svg"/>
+                    <img id="keyboard_base" src="static/images/keyboard_base.svg"/>
 
                     <!--keyboard shadow-->
                     <div id="keyboard_shadow"></div>
@@ -78,23 +71,23 @@
                     <img src="static/images/screen_reflection.svg" id="screen_reflection"/>
 
                     <!--keys-->
-                    <object class="key" data="static/images/c0.svg" id="c0" type="image/svg+xml"></object>
-                    <object class="key" data="static/images/d0.svg" id="d0" type="image/svg+xml" ></object>
-                    <object class="key" data="static/images/e0.svg" id="e0" type="image/svg+xml" ></object>
-                    <object class="key" data="static/images/f0.svg" id="f0" type="image/svg+xml" ></object>
-                    <object class="key" data="static/images/g0.svg" id="g0" type="image/svg+xml" ></object>
-                    <object class="key" data="static/images/a0.svg" id="a0" type="image/svg+xml" ></object>
-                    <object class="key" data="static/images/b0.svg" id="b0" type="image/svg+xml" ></object>
-                    <object class="key" data="static/images/c1.svg" id="c1" type="image/svg+xml"></object>
-                    <object class="key" data="static/images/d1.svg" id="d1" type="image/svg+xml" ></object>
-                    <object class="key" data="static/images/e1.svg" id="e1" type="image/svg+xml" ></object>
-                    <object class="sharp_key" data="static/images/dsharp0.svg" id="csharp0" type="image/svg+xml" ></object>
-                    <object class="sharp_key" data="static/images/csharp0.svg" id="dsharp0" type="image/svg+xml" ></object>
-                    <object class="sharp_key" data="static/images/fsharp0.svg" id="fsharp0" type="image/svg+xml" ></object>
-                    <object class="sharp_key" data="static/images/gsharp0.svg" id="gsharp0" type="image/svg+xml" ></object>
-                    <object class="sharp_key" data="static/images/asharp0.svg" id="asharp0" type="image/svg+xml" ></object>
-                    <object class="sharp_key" data="static/images/csharp1.svg" id="csharp1" type="image/svg+xml" ></object>
-                    <object class="sharp_key" data="static/images/dsharp1.svg" id="dsharp1" type="image/svg+xml" ></object>
+                    <object class="key note note" data="static/images/c0.svg" id="c0" type="image/svg+xml"></object>
+                    <object class="key note" data="static/images/d0.svg" id="d0" type="image/svg+xml" ></object>
+                    <object class="key note" data="static/images/e0.svg" id="e0" type="image/svg+xml" ></object>
+                    <object class="key note" data="static/images/f0.svg" id="f0" type="image/svg+xml" ></object>
+                    <object class="key note" data="static/images/g0.svg" id="g0" type="image/svg+xml" ></object>
+                    <object class="key note" data="static/images/a0.svg" id="a0" type="image/svg+xml" ></object>
+                    <object class="key note" data="static/images/b0.svg" id="b0" type="image/svg+xml" ></object>
+                    <object class="key note" data="static/images/c1.svg" id="c1" type="image/svg+xml"></object>
+                    <object class="key note" data="static/images/d1.svg" id="d1" type="image/svg+xml" ></object>
+                    <object class="key note" data="static/images/e1.svg" id="e1" type="image/svg+xml" ></object>
+                    <object class="sharp_key note" data="static/images/dsharp0.svg" id="csharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key note" data="static/images/csharp0.svg" id="dsharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key note" data="static/images/fsharp0.svg" id="fsharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key note" data="static/images/gsharp0.svg" id="gsharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key note" data="static/images/asharp0.svg" id="asharp0" type="image/svg+xml" ></object>
+                    <object class="sharp_key note" data="static/images/csharp1.svg" id="csharp1" type="image/svg+xml" ></object>
+                    <object class="sharp_key note" data="static/images/dsharp1.svg" id="dsharp1" type="image/svg+xml" ></object>
 
                     <!--screen_title-->
                     <div id="screen_menu">
@@ -103,6 +96,7 @@
                             <h2 onmouseover="getVolume()" onclick="changePage('about_titles')" class="screen_title" id="screen_title_about">ABOUT</h2>
                             <h2 onclick="changePage('portfolio_titles')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
                             <h2 onclick="changePage('contact_titles')" class="screen_title" id="screen_title_contact">CONTACT</h2>
+                            <h2 onclick="changePage('demo_titles'); gameOfThrones()" class="screen_title">DEMO</h2>
                         </div>
 
                         <div id="about_titles">
@@ -128,6 +122,10 @@
                             <a target="_blank" href="https://linkedin.com/in/bennymurray/"><img onmouseover="highlight(this.id)"  onmouseout="revert(this.id)"  class="contact_image" src="static/images/linkedin.svg" id="linkedin_contact_icon" type="image/svg+xml" ></a>
                             <a target="_blank" href="https://github.com/BennyMurray"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)" class="contact_image" src="static/images/github.svg" id="github_contact_icon"type="image/svg+xml"></a>
                              <a target="top" href="mailto:bjamurray@gmail.com"><img onmouseover="highlight(this.id)" onmouseout="revert(this.id)"  class="contact_image" src="static/images/email.svg" id="email_contact_icon" type="image/svg+xml"></a>
+                        </div>
+
+                         <div id="demo_titles">
+                            <img id="got_image" src="static/images/got.svg" />
                         </div>
 
                     </div>
@@ -156,19 +154,22 @@
                 document.getElementById('menu_titles').style.display = 'none';
                 document.getElementById('contact_titles').style.display = 'none';
                 document.getElementById('about_titles').style.display = 'none';
+                document.getElementById('demo_titles').style.display = 'none';
             }
 
             function changePage(page){
                 closeAll();
+
                 document.getElementById(page).style.display = 'block';
-                if(page==='menu_titles'){
+                if(page==='demo_titles'){
+                }else if(page==='menu_titles'){
                     exitMenu();
                 }else{
                     enterMenu();
                 }
             }
 
-              // Synth Logic
+          // Synth Logic
            var context = new AudioContext();
            var gainNode = context.createGain();
            var note_frequencies =  {'c0': 261.626, 'dsharp0': 277.183, 'd0': 293.665, 'csharp0': 311.127, 'e0': 329.628, 'f0': 349.228,
@@ -193,6 +194,8 @@
                 oscillator.type = 'square';
 
                 // Play note
+
+                if(note_frequencies[clickedElement] != null){
                 oscillator.frequency.value = note_frequencies[clickedElement];
                 gainNode.gain.value = getVolume();
                 oscillator.start();
@@ -208,12 +211,14 @@
 
                 // Select a random colour from pallette to fill the key
                 active_key_colour = active_key_colours[Math.floor(Math.random()*active_key_colours.length)];
-                svgItem.style.fill = active_key_colour;
+                svgItem.style.fill = active_key_colour;}
             }
 
              function endnote(event) {
                 oscillator.stop();
                 var clickedElement = event.target.id;
+                console.log(clickedElement);
+                console.log('stopping');
                 var key = document.getElementById(clickedElement);
 
                 // Get the SVG document inside the Object tag
@@ -247,7 +252,7 @@
               addKeyboardListeners();
             }
 
-            // For foxusing on external svgs that can't be accessed via css
+            // For focusing on external svgs that can't be accessed via css
             function highlight(id){
                 var key = document.getElementById(id);
                 key.style.opacity = '1';
@@ -258,12 +263,6 @@
                 var key = document.getElementById(id);
                 key.style.opacity = '0.7';
             }
-
-
-
-
-
-
 
         </script>
       <script src="static/js/gameofthrones.js"> </script>

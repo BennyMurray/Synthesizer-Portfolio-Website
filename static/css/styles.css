@@ -288,11 +288,11 @@ body{
 }
 
 .screen_title{
-    margin-top: 4%;
+    margin-top: 3%;
     transition: font-size 0.3s;
     position: relative;
     font-family: alien-encounters;
-    font-size: 2.6em;
+    font-size: 2em;
     cursor: pointer;
     left: 5%;
     top: 2.5%;
@@ -374,6 +374,17 @@ body{
         color: red;
     }
 
+/*Demo Titles*/
+#demo_titles{
+    display: none;
+}
+
+#got_image{
+    position: absolute;
+    width: 70%;
+    bottom: 26%;
+    left: 14%;
+}
 /*About screen titles*/
 
 #about_titles{

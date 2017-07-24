@@ -1,7 +1,7 @@
 var current_time = 0;
 
 function gameOfThrones(){
-
+        disableKeyboard();
         autoPlay('g0', 0.5);
         autoPlay('c0', 0.5);
         autoPlay('csharp0', 0.25);
@@ -74,26 +74,33 @@ function gameOfThrones(){
         autoPlay('asharp0', 0.25);
         autoPlay('c1', 0.25);
         current_time = 0;
+        setTimeout(activateKeyboard, 10800);
+        setTimeout(function(){closeAll(); document.getElementById('menu_titles').style.display = 'block'; }, 10800);
+
 }
 
 function enterMenu(){
-        autoPlay('c0', 0.25);
-        autoPlay('d0', 0.25);
-        autoPlay('e0', 0.25);
-        autoPlay('g0', 0.25);
-        autoPlay('a0', 0.25);
-        autoPlay('c1', 0.25);
-        current_time = 0;
+    disableKeyboard();
+    autoPlay('c0', 0.25);
+    autoPlay('d0', 0.25);
+    autoPlay('e0', 0.25);
+    autoPlay('g0', 0.25);
+    autoPlay('a0', 0.25);
+    autoPlay('c1', 0.25);
+    current_time = 0;
+    setTimeout(activateKeyboard, 1000);
 }
 
 function exitMenu(){
-        autoPlay('c1', 0.25);
-        autoPlay('a0', 0.25);
-        autoPlay('g0', 0.25);
-        autoPlay('e0', 0.25);
-        autoPlay('d0', 0.25);
-        autoPlay('c0', 0.25);
-        current_time = 0;
+    disableKeyboard();
+    autoPlay('c1', 0.25);
+    autoPlay('a0', 0.25);
+    autoPlay('g0', 0.25);
+    autoPlay('e0', 0.25);
+    autoPlay('d0', 0.25);
+    autoPlay('c0', 0.25);
+    current_time = 0;
+    setTimeout(activateKeyboard, 1000);
 }
 
 
@@ -153,3 +160,11 @@ function strikenote(id) {
                 }
             }
 
+    function disableKeyboard(){
+        document.body.style.pointerEvents = 'none';
+
+    }
+
+      function activateKeyboard(){
+        document.body.style.pointerEvents = 'all';
+    }
