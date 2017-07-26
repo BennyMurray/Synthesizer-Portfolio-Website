@@ -380,11 +380,21 @@ body{
 }
 
 #got_image{
+    display: none;
     position: absolute;
     width: 70%;
     bottom: 26%;
     left: 14%;
 }
+
+#popcorn_image{
+    display: none;
+    position: absolute;
+    width: 70%;
+    bottom: 36%;
+    left: 16%;
+}
+
 /*About screen titles*/
 
 #about_titles{

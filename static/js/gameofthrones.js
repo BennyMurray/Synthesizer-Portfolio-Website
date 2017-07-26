@@ -1,7 +1,58 @@
 var current_time = 0;
 
+function popCorn(){
+        document.getElementById('demo_links').style.display = 'none';
+         document.getElementById('popcorn_image').style.display = 'inline-block';
+        disableKeyboard();
+        autoPlay('c1', 0.25);
+        autoPlay('asharp0', 0.25);
+        autoPlay('c1', 0.25);
+        autoPlay('g0', 0.25);
+        autoPlay('csharp0', 0.25);
+        autoPlay('g0', 0.25);
+        autoPlay('c0', 0.5);
+
+        autoPlay('c1', 0.25);
+        autoPlay('asharp0', 0.25);
+        autoPlay('c1', 0.25);
+        autoPlay('g0', 0.25);
+        autoPlay('csharp0', 0.25);
+        autoPlay('g0', 0.25);
+        autoPlay('c0', 0.5);
+
+
+        autoPlay('c1', 0.25);
+        autoPlay('d1', 0.25);
+        autoPlay('dsharp1', 0.5);
+        autoPlay('dsharp1', 0.25);
+        autoPlay('dsharp1', 0.5);
+        autoPlay('d1', 0.25);
+        autoPlay('c1', 0.25);
+
+        autoPlay('d1', 0.5);
+        autoPlay('d1', 0.25);
+        autoPlay('d1', 0.5);
+        autoPlay('c1', 0.25);
+        autoPlay('asharp0', 0.5);
+
+        autoPlay('c1', 0.5);
+        autoPlay('gsharp0', 0.5);
+        autoPlay('c1', 0.5);
+        autoPlay('asharp0', 0.5);
+        autoPlay('c1', 0.5);
+
+
+        current_time = 0;
+        setTimeout(activateKeyboard, 5000);
+        setTimeout(function(){
+        document.getElementById('popcorn_image').style.display = 'none';
+        document.getElementById('demo_links').style.display = 'block'; }, 5000);
+
+}
 
 function gameOfThrones(){
+            document.getElementById('demo_links').style.display = 'none';
+         document.getElementById('got_image').style.display = 'inline-block';
         disableKeyboard();
         autoPlay('g0', 0.5);
         autoPlay('c0', 0.5);
@@ -76,7 +127,9 @@ function gameOfThrones(){
         autoPlay('c1', 0.25);
         current_time = 0;
         setTimeout(activateKeyboard, 10800);
-        setTimeout(function(){closeAll(); document.getElementById('menu_titles').style.display = 'block'; }, 10800);
+        setTimeout(function(){document.getElementById('demo_links').style.display = 'block';
+              document.getElementById('got_image').style.display = 'none';
+        }, 10800);
 
 }
 
@@ -163,6 +216,7 @@ function strikenote(id) {
 
     function disableKeyboard(){
         document.body.style.pointerEvents = 'none';
+
 
     }
 

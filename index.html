@@ -98,7 +98,7 @@
                             <h2 onmouseover="getVolume()" onclick="changePage('about_titles')" class="screen_title" id="screen_title_about">ABOUT</h2>
                             <h2 onclick="changePage('portfolio_titles')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
                             <h2 onclick="changePage('contact_titles')" class="screen_title" id="screen_title_contact">CONTACT</h2>
-                            <h2 onclick="changePage('demo_titles'); gameOfThrones()" class="screen_title">DEMO TUNE</h2>
+                            <h2 onclick="changePage('demo_titles');" class="screen_title">DEMO TUNES</h2>
                         </div>
 
                         <div id="about_titles">
@@ -127,7 +127,14 @@
                         </div>
 
                          <div id="demo_titles">
-                            <img id="got_image" src="static/images/got.svg" />
+                         <div id="demo_links">
+                            <a><h6 onclick="gameOfThrones()" class="portfolio_subtitle">Game of Thrones</h6></a>
+                            <a ><h6 onclick="popCorn()" class="portfolio_subtitle">Popcorn</h6></a>
+                              <h2 onclick="changePage('menu_titles')" class="screen_title" id="backarrow">◀ back</h2>
+                         </div>
+                                 <img id="got_image" src="static/images/got.svg" />
+                              <img id="popcorn_image" src="static/images/popcorn.svg" />
+
                         </div>
 
                     </div>
