@@ -1,5 +1,6 @@
 var current_time = 0;
 
+
 function gameOfThrones(){
         disableKeyboard();
         autoPlay('g0', 0.5);
@@ -88,7 +89,7 @@ function enterMenu(){
     autoPlay('a0', 0.25);
     autoPlay('c1', 0.25);
     current_time = 0;
-    setTimeout(activateKeyboard, 1000);
+    setTimeout(activateKeyboard, 700);
 }
 
 function exitMenu(){
@@ -100,7 +101,7 @@ function exitMenu(){
     autoPlay('d0', 0.25);
     autoPlay('c0', 0.25);
     current_time = 0;
-    setTimeout(activateKeyboard, 1000);
+    setTimeout(activateKeyboard, 700);
 }
 
 

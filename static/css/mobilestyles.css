@@ -73,7 +73,7 @@ body{
 #mobile-wrapper{
     font-weight: 200;
     padding-top: 20%;
-    font-family: "Century Gothic";
+    font-family: "Century Gothic", "Helvetica", "Arial";
     color: #606060;
     height: 100%;
     width: 100%;

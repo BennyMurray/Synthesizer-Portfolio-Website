@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="static/js/propeller.min.js"></script>
-
+        <script src="static/js/detectExplorer.js"></script>
         <script>
 
         function onReady(callback) {
@@ -35,6 +35,8 @@
         <script type="text/javascript">
           if (screen.width <= 800) {
             window.location = "http://benmurray.me/m.html";
+          }else if(detectIE() != false){
+            window.location = "http://benmurray.me/otherbrowser.html";
           }
         </script>
 
@@ -96,7 +98,7 @@
                             <h2 onmouseover="getVolume()" onclick="changePage('about_titles')" class="screen_title" id="screen_title_about">ABOUT</h2>
                             <h2 onclick="changePage('portfolio_titles')" class="screen_title" id="screen_title_portfolio">PORTFOLIO</h2>
                             <h2 onclick="changePage('contact_titles')" class="screen_title" id="screen_title_contact">CONTACT</h2>
-                            <h2 onclick="changePage('demo_titles'); gameOfThrones()" class="screen_title">DEMO</h2>
+                            <h2 onclick="changePage('demo_titles'); gameOfThrones()" class="screen_title">DEMO TUNE</h2>
                         </div>
 
                         <div id="about_titles">
